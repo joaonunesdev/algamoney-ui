@@ -16,14 +16,27 @@
           [inline]="false"
           [readonlyInput]="false"
           [showIcon]="false"
+          name="vencimento"
+          #vencimento="ngModel"
+          ngModel
+          required
         ></p-calendar>
+        <app-message
+          [control]="vencimento"
+          error="required"
+          text="Informe uma data de vencimento"
+        ></app-message>
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>{{
           tipo.value === "RECEITA" ? "Recebimento" : "Pagamento"
         }}</label>
-        <p-calendar dateFormat="dd/mm/yy"></p-calendar>
+        <p-calendar
+          dateFormat="dd/mm/yy"
+          name="dataRecebimentoPagamento"
+          ngModel
+        ></p-calendar>
       </div>
 
       <div class="ui-g-12 ui-md-9 ui-fluid">
@@ -38,9 +51,18 @@
           minlength="5"
         />
 
-        <app-message [control]="descricao" error="required" text="Informe uma descrição"></app-message>
-        <app-message [control]="descricao" error="minlength" text="Mínimo de {{ descricao?.errors?.minlength?.requiredLength
-        }} caracteres"></app-message>
+        <app-message
+          [control]="descricao"
+          error="required"
+          text="Informe uma descrição"
+        ></app-message>
+        <app-message
+          [control]="descricao"
+          error="minlength"
+          text="Mínimo de {{
+            descricao?.errors?.minlength?.requiredLength
+          }} caracteres"
+        ></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
@@ -58,6 +80,7 @@
           placeholder="0,00"
           ngModel
           name="valor"
+          required
         />
       </div>
 
@@ -67,6 +90,9 @@
           [options]="categorias"
           [autoWidth]="false"
           placeholder="Selecione"
+          ngModel
+          name="categoria"
+          required
         ></p-dropdown>
       </div>
 
@@ -76,16 +102,19 @@
           [options]="pessoas"
           [filter]="true"
           placeholder="Selecione"
+          ngModel
+          name="pessoa"
+          required
         ></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-fluid">
         <label>Observação</label>
-        <textarea pInputTextarea rows="3"></textarea>
+        <textarea pInputTextarea rows="3" name="observacao" ngModel></textarea>
       </div>
 
       <div class="ui-g-12">
-        <button type="submit" label="Salvar" pButton></button>
+        <button type="submit" label="Salvar" pButton [disabled]="lancamentoForm.invalid"></button>
         <button
           type="button"
           style="margin-left: 5px;"
