@@ -1,6 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -15,8 +16,12 @@ import { InputTextareaModule } from 'primeng/components/inputtextarea/inputtexta
 import { CalendarModule } from 'primeng/components/calendar/calendar';
 import { SelectButtonModule } from 'primeng/components/selectbutton/selectbutton';
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
+import { InputMaskModule } from 'primeng/components/inputmask/inputmask';
+import { MessageModule } from 'primeng/components/message/message';
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
@@ -25,7 +30,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     LancamentosPesquisaComponent,
     NavbarComponent,
     PessoasPesquisaComponent,
-    LancamentoCadastroComponent
+    LancamentoCadastroComponent,
+    PessoaCadastroComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,10 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     BrowserAnimationsModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    FormsModule,
+    InputMaskModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
