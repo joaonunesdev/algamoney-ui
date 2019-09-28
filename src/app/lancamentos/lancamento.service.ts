@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import * as moment from 'moment';
+import { Lancamento } from '../core/model';
 
 export class LancamentoFiltro {
   descricao: string;
@@ -18,6 +19,7 @@ export class LancamentoFiltro {
   providedIn: 'root'
 })
 export class LancamentoService {
+
   lancamentosUrl = 'http://localhost:8080/lancamentos';
 
   constructor(private http: HttpClient) {}
@@ -52,5 +54,66 @@ export class LancamentoService {
         return resultado;
       })
     );
+  }
+
+  salvar(lancamento: Lancamento): Observable<Lancamento> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    ).set(
+      'Content-Type',
+      'application/json');
+
+    return this.http.post<Lancamento>(this.lancamentosUrl, lancamento, { headers });
+  }
+
+  atualizar(lancamento: Lancamento): Observable<Lancamento> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    );
+
+    return this.http.put<Lancamento>(`${this.lancamentosUrl}/${lancamento.codigo}`, lancamento, { headers }).pipe(
+      map( response => {
+        this.converterStringsParaDatas([response]);
+        return response;
+      }),
+      tap( response => console.log(response))
+    );
+  }
+
+  buscarPorCodigo(codigo: number): Observable<Lancamento> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    );
+
+    return this.http.get<Lancamento>(`${this.lancamentosUrl}/${codigo}`, { headers }).pipe(
+      map( response => {
+        this.converterStringsParaDatas([response]);
+        return response;
+      })
+    );
+  }
+
+  excluir(codigo: number): Observable<void> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    );
+
+    return this.http.delete<void>(`${this.lancamentosUrl}/${codigo}`, { headers });
+  }
+
+  private converterStringsParaDatas(lancamentos: Lancamento[]) {
+      for (const lancamento of lancamentos) {
+        lancamento.dataVencimento = moment(lancamento.dataVencimento,
+          'YYYY-MM-DD').toDate();
+
+        if (lancamento.dataPagamento) {
+          lancamento.dataPagamento = moment(lancamento.dataPagamento,
+            'YYYY-MM-DD').toDate();
+        }
+      }
   }
 }

@@ -51,6 +51,7 @@
         [totalRecords]="totalRegistros"
         [loading]="loading"
         (onLazyLoad)="aoMudarPagina($event)"
+        #tabela
       >
         <!-- <p-column field="pessoa"></p-column> -->
         <ng-template pTemplate="header">
@@ -67,8 +68,8 @@
           <tr>
             <td>{{ lancamento.pessoa }}</td>
             <td>{{ lancamento.descricao }}</td>
-            <td>{{ lancamento.dataVencimento | date: "dd/MM/y" }}</td>
-            <td>{{ lancamento.dataPagamento | date: "dd/MM/y" }}</td>
+            <td>{{ lancamento.dataVencimento | date: "dd/MM/yyyy" }}</td>
+            <td>{{ lancamento.dataPagamento | date: "dd/MM/yyyy" }}</td>
             <!-- Alternativa por se tratar de uma única propriedade -->
             <!-- [style.color]="lancamento.tipo === 'DESPESA' ? 'red' : 'blue'" -->
             <td
@@ -81,6 +82,7 @@
             </td>
             <td style="text-align: center;">
               <a
+                [routerLink]="['/lancamentos', lancamento.codigo]"
                 pButton
                 icon="pi pi-pencil"
                 pTooltip="Editar"
@@ -92,6 +94,7 @@
                 icon="pi pi-trash"
                 pTooltip="Excluir"
                 tooltipPosition="top"
+                (click)="confirmarExclusao(lancamento)"
               ></button>
             </td>
           </tr>
@@ -99,7 +102,7 @@
       </p-table>
     </div>
     <div class="ui-g-12">
-      <a pButton label="Novo Lançamento"></a>
+      <a routerLink="/lancamentos/novo" routerLinkActive="router-link-active"  pButton label="Novo Lançamento"></a>
     </div>
   </div>
 </div>

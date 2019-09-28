@@ -1,0 +1,65 @@
+[33mcommit 2da4ed180410c743aa0b55c80bf7eaf0457ce2a5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Thu Sep 19 16:04:50 2019 -0300
+
+    adiciona serviço para lançamentos e paginação dinâmica
+
+[33mcommit 2fc7115f84cda5bf9dc206bb197e6cd778df8edf[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Tue Sep 17 17:40:38 2019 -0300
+
+    divide a aplicação em módulos
+
+[33mcommit 0eaa49854bdf7b4084ee8f2adf0e71ad3267b9e1[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Tue Sep 17 12:00:30 2019 -0300
+
+    adiciona componente pessoas-grid
+
+[33mcommit 7ea0582e0e74a2a4aad53ca2879f9565766dd9d0[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Tue Sep 17 11:55:48 2019 -0300
+
+    adiciona o componente lancamentos-grid
+
+[33mcommit 21d437c27ee8a96a19dbe031771f5062136d5c75[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Tue Sep 17 11:40:50 2019 -0300
+
+    adiciona validação ao cadastro de lançamentos
+
+[33mcommit 6292af12710eed920d2bed893a907c9ee8c53313[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Tue Sep 17 10:19:37 2019 -0300
+
+    adiciona validação no componente de cadastro de pessoa
+
+[33mcommit ab917400eb3f90e7b3881bed90499c18532ed29d[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Mon Sep 16 23:13:16 2019 -0300
+
+    Componente de mensagem (de erro)
+
+[33mcommit 0f296a941b34554775420945e3dafb59d2b20a25[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Sun Sep 15 20:41:54 2019 -0300
+
+    13.5 máscara de dinheiro
+
+[33mcommit f35a89d17ed5ec05a09023dbde28277718ab836f[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Sun Sep 15 20:32:24 2019 -0300
+
+    13.4 Caixa de seleção (componente dropdown
+
+[33mcommit fa2d95b2b40498c33a2c300e96b13496a12f5dab[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Sun Sep 15 18:53:45 2019 -0300
+
+    13.1 Criando o protótipo do formulário de cadastro de lançamentos
+
+[33mcommit 8de22695a6ec1df2db6ab20e931e553e8e1eed2f[m
+Author: Joao Nunes <joaonunesdev@gmail.com>
+Date:   Fri Sep 13 22:00:28 2019 -0300
+
+    initial commit

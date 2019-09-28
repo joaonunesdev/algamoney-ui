@@ -1,26 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
-import { LancamentoService } from './lancamentos/lancamento.service';
 
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    PessoasModule,
-    LancamentosModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+
     CoreModule,
-    HttpClientModule
+    AppRoutingModule,
+    LancamentosModule,
+    PessoasModule
   ],
-  providers: [LancamentoService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

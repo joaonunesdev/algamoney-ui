@@ -30,13 +30,22 @@
 
 .navbar-menuitem {
   padding: 15px;
-}
-
-.navbar-menuitem a {
   color: #c0bbb7;
-  /* text-decoration: none; */
 }
 
-.navbar-menuitem a:hover {
+
+.navbar-menuitem:hover {
   color: #fff;
 }
+
+.navbar-menuitem {
+  cursor: pointer;
+}
+
+.navbar-menuitem.ativo {
+  background-color: #494541;
+}
+
+
+
+

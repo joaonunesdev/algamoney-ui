@@ -1,12 +1,12 @@
 <div class="container">
-  <form #lancamentoForm="ngForm" autocomplete="off">
+  <form #lancamentoForm="ngForm" autocomplete="off" (ngSubmit)="salvar(lancamentoForm)">
     <div class="ui-g">
       <div class="ui-g-12">
-        <h1>Novo Lançamento</h1>
+        <h1>{{ editando ? 'Edição de ' : 'Novo' }} Lançamento</h1>
       </div>
 
       <div class="ui-g-12">
-        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+        <p-selectButton [options]="tipos" #tipo name="tipo" [(ngModel)]="lancamento.tipo"></p-selectButton>
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -18,7 +18,7 @@
           [showIcon]="false"
           name="vencimento"
           #vencimento="ngModel"
-          ngModel
+          [(ngModel)]="lancamento.dataVencimento"
           required
         ></p-calendar>
         <app-message
@@ -35,7 +35,7 @@
         <p-calendar
           dateFormat="dd/mm/yy"
           name="dataRecebimentoPagamento"
-          ngModel
+          [(ngModel)]="lancamento.dataPagamento"
         ></p-calendar>
       </div>
 
@@ -45,7 +45,7 @@
           pInputText
           type="text"
           name="descricao"
-          ngModel
+          [(ngModel)]="lancamento.descricao"
           #descricao="ngModel"
           required
           minlength="5"
@@ -78,7 +78,7 @@
             allowNegative: false
           }"
           placeholder="0,00"
-          ngModel
+          [(ngModel)]="lancamento.valor"
           name="valor"
           required
         />
@@ -90,7 +90,7 @@
           [options]="categorias"
           [autoWidth]="false"
           placeholder="Selecione"
-          ngModel
+          [(ngModel)]="lancamento.categoria.codigo"
           name="categoria"
           required
         ></p-dropdown>
@@ -102,7 +102,7 @@
           [options]="pessoas"
           [filter]="true"
           placeholder="Selecione"
-          ngModel
+          [(ngModel)]="lancamento.pessoa.codigo"
           name="pessoa"
           required
         ></p-dropdown>
@@ -121,8 +121,9 @@
           label="Novo"
           pButton
           class="ui-button-secondary"
+          (click)="novo(lancamentoForm)"
         ></button>
-        <a style="margin-left: 5px;" href="javascript:;"
+        <a [routerLink]="['/lancamentos']" routerLinkActive="router-link-active"  style="margin-left: 5px;" href="javascript:;"
           >Voltar para a pesquisa</a
         >
       </div>
