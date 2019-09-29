@@ -13,7 +13,7 @@ import { InputMaskModule } from 'primeng/components/inputmask/inputmask';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { SharedModule } from '../shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { PessoasRoutingModule } from './pessoas-routing.module';
 
 
 @NgModule({
@@ -23,7 +23,6 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule,
     InputTextModule,
     ButtonModule,
     TableModule,
@@ -34,7 +33,8 @@ import { RouterModule } from '@angular/router';
     DropdownModule,
     FormsModule,
     InputMaskModule,
-    SharedModule
+    SharedModule,
+    PessoasRoutingModule
   ],
   exports: []
 })

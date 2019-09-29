@@ -95,4 +95,21 @@ export class PessoaService {
     return this.http.post<Pessoa>(this.pessoasUrl, pessoa, { headers });
   }
 
+  atualizar(pessoa: Pessoa) {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    );
+
+    return this.http.put<Pessoa>(this.pessoasUrl, pessoa, { headers });
+  }
+
+  buscarPorCodigo(codigo: any): Observable<Pessoa> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    );
+    return this.http.get<Pessoa>(`${this.pessoasUrl}/${codigo}`, { headers });
+  }
+
 }

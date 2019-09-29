@@ -48,6 +48,7 @@
             <td *ngIf="!pessoa.ativo"><a href="javascript:;" pTooltip="Ativar" (click)="ativar(pessoa)">Inativo</a></td>
             <td style="text-align: center;">
               <a
+                [routerLink]="['/pessoas', pessoa.codigo]"
                 pButton
                 icon="pi pi-pencil"
                 pTooltip="Editar"

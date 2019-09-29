@@ -40,8 +40,6 @@ export class LancamentoCadastroComponent implements OnInit {
 
     if (codigoLancamento) {
       this.carregarLancamento(codigoLancamento);
-      console.log(this.lancamento);
-
       this.atualizaTituloEdicao();
     } else {
       this.title.setTitle('Novo lançamento');
@@ -49,7 +47,6 @@ export class LancamentoCadastroComponent implements OnInit {
 
     this.carregarCategorias();
     this.carregarPessoas();
-    console.log(this.route.snapshot.params['codigo']);
   }
 
   carregarLancamento(codigo: number) {
